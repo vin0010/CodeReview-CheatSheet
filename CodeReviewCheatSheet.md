@@ -21,3 +21,15 @@
 - Memory usage should be acceptable even for large inputs.
 - Use data type that bets suits the needs such as String Builder Generic collection classes etc.
 - Leverage Lazy loading, asynchronous and parallel processing as much as possible
+
+## OOAD
+- Do not place more than one responsibility into a single class or function(if so refactor into separate classes and functions). There should be a limit for number of lines in a class(typically it should be around 300 to 400).
+- Do not create lengthy interfaces, instead split them into smaller interfaces and based on functionality. The interface should not contain any dependencies, which are not required for the expected functionality.  
+- Controllers/Services should not have parameter-less constructors, Use proper libraries for dependency injection.
+- Old/replaced code should be removed instead of commented out unless there is a specific and documented reason why it is left in place.
+- If any new libraries are added, please follow the steps
+    - Check about license with legal team
+    - Check its security in the community
+    - Is the package has permissible level of known issues(one way is to look into its defect backlog and squash rate)?
+    - Is the package actively developed or contributed?
+    - Stable version of package instead of going for beta version.
