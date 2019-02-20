@@ -1,12 +1,13 @@
 # Development and Code Review Cheat Sheet
+>I believe there are 7 aspects in development and code review that will save lot of time and cost in software engineering. 
 
-- [Documentation](#Documentation)
+- [Documentation](#documentation)
 - [Performance](#performance)
 - [OOAD](#ooad)
 - [Reusability](#reusability)
 - [Thread safety](#thread-safety)
 - [Error Handling](#error-handling)
-- [Testing(Unit and Dev)](#testing-unit-and-dev)
+- [Testing](#testing)
 
 ## Documentation
 - Code should be self explanatory. Get a feel of story reading, while going through the code. Use appropriate name for variables, functions and classes. If you are taking more time to understand the code, then either code needs refactoring or at least comments have to be written to make it clear.
@@ -33,3 +34,28 @@
     - Is the package has permissible level of known issues(one way is to look into its defect backlog and squash rate)?
     - Is the package actively developed or contributed?
     - Stable version of package instead of going for beta version.
+
+## Reusability
+- DRY(Do not repeat yourself) principle. The same code should not be repeated more than twice. 
+- Consider reusable services, wrappers, functions and components. 
+
+## Thread safety
+- Global variables are protected by locks or any stable locking mechanism.
+- Objects accessed by multiple threads are accessed only through a lock.
+- Locks should be accessed and released in the right order to prevent deadlocks(even in error handling code).
+
+## Error handling
+- Handle 
+    - Invalid arguments
+    - Cover common exceptions i.e Array index out of bound, null checks etc.
+- Memory is released and resources are closed under both error and non error conditions.
+
+## Testing
+- All new code should have test coverage. Even though it may not be 100% covered but effort should be made to think about the happy path and common error conditions. 
+- The code should be easy to test. Refactor into a separate function(if required). Use interfaces while talking to other layers, as interfaces can be mocked easily. Try to avoid static functions and singleton classes as these are not easily testable by mocks.
+- Defect fix should have test cases that explicitly recreate the error. Exception could be during time sensitive fix (hotfix or during regression) with a follow up ticket created for refactoring in a subsequent sprints.
+- Unit test cover errors and invalid parameter cases.
+- Unit tests demonstrate the algorithm is performing as documented.
+
+## For Code reviewers
+>in progress
